@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ title }} :: {{ block.super }}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% for item in invites %}
+<div class="card mb-3">
+<div class="card-header">
+</div>
+    <div class="card-body">
+        <div class="media">
+
+            <div class="media-body">
+                <h5 class="card-title"> {{ item.name }}</h5>
+                <p class="card-title"> {{ item.comment|linebreaks|truncatewords:50 }}</p>
+                <a href="{{ item.get_absolute_url }}" class="btn btn-primary"> Ссылка на новости</a>
+
+            </div>
+        </div>
+         </div>
+    <div class="card-footer text-muted">
+        {{ item.created_at|date:"Y-m-d H:i"}}
+
+    </div>
+        {{ item.created_at|timesince}}
+</div>
+{% endfor %}
+
+{% endblock %}
+
+

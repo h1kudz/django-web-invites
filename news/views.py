@@ -11,6 +11,9 @@ from .utils import MyMixin
 
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+
+@login_required()
 
 def register(request):
     if request.method == 'POST':
@@ -27,6 +30,7 @@ def register(request):
     return render(request, 'news/register.html', {"form": form })
 
 def user_login(request):
+
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
@@ -48,13 +52,16 @@ def test(request):
     page_objects = paginator.get_page(page_num)
     return render(request, 'news/test.html', {'page_obj': page_objects})
 
-class HomeNews(ListView, MyMixin):
+class HomeNews(LoginRequiredMixin,ListView, MyMixin):
     model = News
     template_name = 'news/home_news_list.html'
     context_object_name = 'news'
     mixin_prop = 'hello world'
     paginate_by = 20
     # extra_context = {'title': 'Главная'}
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -90,7 +97,6 @@ class ViewNews(DetailView):
 
 class CreateNews(LoginRequiredMixin, CreateView):
     form_class = NewsForm
-
     template_name = 'news/add_news.html'
     # success_url = reverse_lazy('home')
     # login_url = '/admin/'
@@ -102,7 +108,7 @@ class CreateNews(LoginRequiredMixin, CreateView):
 #         'news': news,
 #         'title': 'Список новостей',
 #     }
-#     return render(request, template_name='news/index.html', context=context)
+#     return render(request, template_name='news/add_invites.html', context=context)
 
 # def get_category(request, category_id):
 #     news = News.objects.filter(category_id=category_id)
