@@ -11,22 +11,27 @@
 
       <div id="headerwrap">
            <div class="container">
-                <div id="img">
-                    <img src="/static/img/1.jpg" alt="Наше фото">
+               <div class="row">
+                <div class="col-lg col-md col-sm "id="img">
+                    <img src="/static/img/mainphoto.jpg" alt="Наше фото">
                 </div>
-                <div class="col-lg col-md col-sm" id = "names">
+               <div class="col-lg col-md col-sm">
+                     <div class="col-lg col-md col-sm" id = "names">
                     <h1 id = "woman"> Екатерина</h1>
                          <h4 id="and"> и </h4>
                     <h1 id = "men"> Марк </h1>
                 </div>
-                <div class="col-lg col-md col-sm" id = "data1">
-                    <h4> 17 </h4>
-                    <h4> Сентябрь </h4>
-                    <h4> 2022</h4>
+                    <div class="col-lg col-md col-sm" id = "data1">
+                        <h4> 17 </h4>
+                        <h4> Сентябрь </h4>
+                        <h4> 2022</h4>
+                    </div>
+                    <div id="time">
+                        <h5> 14:00 </h5>
+                    </div>
                 </div>
-                <div id="time">
-                    <h5> 14:00 </h5>
-                </div>
+
+               </div>
             </div>
       </div>
 <hr>
@@ -80,10 +85,9 @@
   </div>
    <h5 id = "wishesid" >Подтвердите свое присутствие:</h5>
   <div class="f" >
-      <div class = "card">
+      <div class = "card col-lg-6 col-md-8 col-sm-8">
           <div class="card-body">
             <form action="{% url 'add_invites' %}" method="post">
-
                   {% csrf_token %}
                 <label id = "name"> Ваше Имя</label>
                 <div class = "mb-3"><input name = "name" required id="id_name" class="form-control"> </div>
@@ -95,9 +99,6 @@
                       {{ item.tag }}
                 </div>
                   {% endfor %}
-{#              <div class="form-check">#}
-{#                  <input type="radio" class = "form-check-input">#}
-{#                  <label > К сожалению, не смогу ...</label>#}
               <label > Ваши пожелания !</label>
               <div class = "mb-3"><textarea name="comment" cols="20" rows="5" class="form-control" id="id_comment"></textarea></div>
                <div class = "col"> <button class = "btn btn-dark ">
