@@ -15,9 +15,9 @@
                 <div class="col-lg col-md col-sm "id="img">
                     <img src="/static/img/mainphoto.jpg" alt="Наше фото">
                 </div>
-               <div class="col-lg col-md col-sm">
-                     <div class="col-lg col-md col-sm" id = "names">
-                    <h1 id = "woman"> Екатерина</h1>
+                <div class="col-lg col-md col-sm" id = "textmain">
+                    <div class="col-lg col-md col-sm" id = "names">
+                    <h1 id = "woman"> Екатерина </h1>
                          <h4 id="and"> и </h4>
                     <h1 id = "men"> Марк </h1>
                 </div>
@@ -27,63 +27,41 @@
                         <h4> 2022</h4>
                     </div>
                     <div id="time">
-                        <h5> 14:00 </h5>
+                        <h4> 14:00 </h4>
                     </div>
                 </div>
-
                </div>
             </div>
       </div>
-<hr>
-      <div id="mainid">
-       <div class="container">
-                <h3> До события </h3>
-                <div class="row" id = "data2">
-                    <p class = "col-3" > дни </p>
-                   <p class = "col-3"> часы </p>
-                    <p class = "col-3">минуты </p>
-                   <p class = "col-3"> секунды </p>
-                </div>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/static/img/1.jpg" class="d-block w-100" alt="...">
+      <div class = "main">
+       <div class="container">
+           <div id="data2">
+               <h3 > До события </h3>
+                <div class="col-sm col-md col-lg" >
+                    <script src="//megatimer.ru/get/ae53098c249859ee838a37668d235d7b.js"></script>
+                </div>
+           </div>
     </div>
-    <div class="carousel-item size">
-      <img src="/static/img/2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="/static/img/3.jpg" class="d-block w-100" alt="...">
-    </div>
+    <div class = "box">
+       <div id="info">
+           <h3>Место проведения</h3>
+           <div class="maps row">
+               <div id="map" style="width: 700px; height: 400px"></div>
+                <p> Парк "Сатал", Летняя веранда
+г. Якутск, Маганский тракт, 6 км.</p>
+           </div>
+
+            <h3>Наши пожелания</h3>
+            <p> Мы очень старались сделать праздник красивым и будем рады!</p>
+                <p>Не ломайте голову над подарками: </p>
+                <p>Ваши пожелания в конвертах помогут нам осуществить мечту </p>
+                    <p>Спасибо!</p>
+       </div>
+   </div>
+          <h3>Подтвердите свое присутствие:</h3>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
- </div>
-            <p>  Наши фото  </p>
-           <hr>
-           <h3>МЕСТО ПРОВЕДЕНИЯ</h3>
-            <div id="maps"> Тут будет карта</div>
-            <p>  г.Якутск </p>
-           <h3>НАШИ ПОЖЕЛАНИЯ</h3>
-            <p> Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах Вы поддержите цветовую гамму нашей свадьбы:Не ломайте голову над подарками:
-Ваши пожелания в конвертах помогут нам осуществить мечту
-Спасибо!</p>
-           <hr>
-  </div>
-   <h5 id = "wishesid" >Подтвердите свое присутствие:</h5>
+
   <div class="f" >
       <div class = "card col-lg-6 col-md-8 col-sm-8">
           <div class="card-body">
@@ -113,10 +91,40 @@
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
  <script src="{% static 'bootstrap/css/bootstrap.min.js' %}"></script>
+   <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
   </body>
 
 <footer>
     <p>Бэк Django</p>
     <p> недофронт</p>
 </footer>
+<script type="text/javascript">
+ymaps.ready(init);
+
+function init() {
+    var myMap = new ymaps.Map("map", {
+            center: [62.033046, 129.732280],
+            zoom: 12
+        }, {
+            searchControlProvider: 'yandex#search'
+        }),
+
+        myPieChart = new ymaps.Placemark([
+            62.053777, 129.773393
+        ], {
+
+            data: [
+                {weight: 8, color: '#0E4779'},
+                {weight: 6, color: '#1E98FF'},
+                {weight: 4, color: '#82CDFF'}
+            ],
+            iconCaption: "Место встречи"
+        });
+
+    myMap.geoObjects
+
+        .add(myPieChart);
+}
+
+</script>
 </html>

@@ -1,7 +1,7 @@
 
 body {
-    font-family: 'PT Serif',serif;
-    background: url("/static/img/bgmain.jpg") no-repeat center top fixed;
+    font-family: 'PT Serif', serif;
+    background: url("/static/img/bg2.jpg") no-repeat center top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -30,7 +30,7 @@ body {
     height: 100%;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
- /*@keyframes show {
+ @keyframes show {
     0% {
         opacity: 0;
     }
@@ -38,8 +38,10 @@ body {
         opacity: 1;
     }
 }
-  */
+
 #names {
+    font-family: 'Classica One', serif;
+    color: #97715b;
     margin-top: 50px;
     padding-top: 30px;
     transition: 1s;
@@ -47,22 +49,25 @@ body {
     animation-fill-mode: forwards;
     animation-delay: 2s;
 }
-
+#names h1 {
+    font-size: 60px;
+    font-weight: bold;
+}
 #men {
-    margin-left: 150px;
-    margin-top: -20px;
+
+    margin-left: 120px;
+    margin-top: 5px;
 }
 #and {
-    margin-top: -20px;
-    color: #6f42c1;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: -15px;
     margin-left: 100px;
 }
 
 #data1 {
-     font-size: 24px;
-    margin-top: 80px;
-
     color: #97715b;
+    margin-top: 80px;
     /* opacity: 0;
      */
     display: flex;
@@ -74,12 +79,16 @@ body {
     animation-fill-mode: forwards;
     animation-delay: 3s;
 }
+#data1 h4 {
+     font-size: 30px;
+}
 #time {
+    color: #97715b;
     font-size: 24px;
     margin-bottom: 50px;
-    color: #97715b;
+
 }
-#mainid {
+.main {
     margin-top: 25px;
     padding-top: 25px;
     text-align: center;
@@ -89,14 +98,42 @@ body {
     background-size: 100%;
 
 }
-#mainid h3 {
-    color: #664d03;
-    font-size: 25px;
+.main h3{
+    color: #97715b;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.maps {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#data2 {
+    display: flex;
+    flex-direction: column;
+    flex: 2 1 300px;
+    color: #97715b;
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+.box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#info {
+    font-family: 'PT Serif', serif;
+    width: 600px;
+}
 
+#info p {
+    color: #1b1b1b;
+    font-size: 20px;
+    margin: 0px;
 }
-#data2 p {
-    color: #664d03;
-}
+
 
 #form {
     margin-top: 100px;
