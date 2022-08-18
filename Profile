@@ -1,1 +1,1 @@
-web: gunicorn django-web-invites.wsgi --log-file -
+web: gunicorn django.wsgi --log-file -
