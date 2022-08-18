@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-
+# WSGI_APPLICATION = 'DJANGOSITE.wsgi.application'
 
 
 # Database
